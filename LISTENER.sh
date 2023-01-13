@@ -25,8 +25,8 @@ do
 done
 cd raw
 #cat *.craw > rawdata
-cat rawdata | base64 --decode > result.PNG
-mv result.PNG ../
+cat rawdata | base64 --decode > result.pdf
+mv result.pdf ../
 rm * .
 cd ..
 echo "finish.."
