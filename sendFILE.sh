@@ -21,7 +21,9 @@ echo $iter
 # send iteration to receiver
 echo "$iter" > raw/iter.txt
 ./encode audio/encoded.wav 8000 16 1 raw/iter.txt 1800 YD1RUH
+# rigctl -m 2 T 1
 aplay audio/encoded.wav
+# rigctl -m 2 T 0
 sleep 10
 
 #iteration process for each packet
@@ -31,7 +33,9 @@ for f in "${allfiles[@]}"
 do
     #echo "transmit : $f"
     ./encode audio/encoded.wav 8000 16 1 $f 1800 YD1RUH
+    # rigctl -m 2 T 1
     aplay audio/encoded.wav
+    # rigctl -m 2 T 0
     sleep 10
 done | sort -t"." -k1n
 
